@@ -1,0 +1,19 @@
+D:\C# Projects\RM Dental Laboratory and Supplies\RM Dental Laboratory and Supplies\bin\Debug\RM Dental Laboratory and Supplies.exe.config
+D:\C# Projects\RM Dental Laboratory and Supplies\RM Dental Laboratory and Supplies\bin\Debug\RM Dental Laboratory and Supplies.exe
+D:\C# Projects\RM Dental Laboratory and Supplies\RM Dental Laboratory and Supplies\bin\Debug\RM Dental Laboratory and Supplies.pdb
+D:\C# Projects\RM Dental Laboratory and Supplies\RM Dental Laboratory and Supplies\obj\Debug\RM Dental Laboratory and Supplies.csproj.AssemblyReference.cache
+D:\C# Projects\RM Dental Laboratory and Supplies\RM Dental Laboratory and Supplies\obj\Debug\RM_Dental_Laboratory_and_Supplies.Properties.Resources.resources
+D:\C# Projects\RM Dental Laboratory and Supplies\RM Dental Laboratory and Supplies\obj\Debug\RM Dental Laboratory and Supplies.csproj.GenerateResource.cache
+D:\C# Projects\RM Dental Laboratory and Supplies\RM Dental Laboratory and Supplies\obj\Debug\RM Dental Laboratory and Supplies.csproj.CoreCompileInputs.cache
+D:\C# Projects\RM Dental Laboratory and Supplies\RM Dental Laboratory and Supplies\obj\Debug\RM Dental Laboratory and Supplies.exe
+D:\C# Projects\RM Dental Laboratory and Supplies\RM Dental Laboratory and Supplies\obj\Debug\RM Dental Laboratory and Supplies.pdb
+D:\C# Projects\RM Dental Laboratory and Supplies\RM Dental Laboratory and Supplies\obj\Debug\RM_Dental_Laboratory_and_Supplies.Login_Authentication.LoginForm.resources
+D:\C# Projects\RM Dental Laboratory and Supplies\RM Dental Laboratory and Supplies\obj\Debug\RM_Dental_Laboratory_and_Supplies.MainForm.resources
+D:\C# Projects\RM Dental Laboratory and Supplies\RM Dental Laboratory and Supplies\obj\Debug\RM_Dental_Laboratory_and_Supplies.UserControls.Dashboard.resources
+D:\C# Projects\RM Dental Laboratory and Supplies\RM Dental Laboratory and Supplies\obj\Debug\RM_Dental_Laboratory_and_Supplies.UserControls.OutCases.resources
+D:\C# Projects\RM Dental Laboratory and Supplies\RM Dental Laboratory and Supplies\obj\Debug\RM_Dental_Laboratory_and_Supplies.UserControls.ViewDatas.resources
+D:\C# Projects\RM Dental Laboratory and Supplies\RM Dental Laboratory and Supplies\obj\Debug\RM_Dental_Laboratory_and_Supplies.Forms.Dashboard.AddCase.resources
+D:\C# Projects\RM Dental Laboratory and Supplies\RM Dental Laboratory and Supplies\obj\Debug\RM_Dental_Laboratory_and_Supplies.Forms.Dashboard.AddDentist.resources
+D:\C# Projects\RM Dental Laboratory and Supplies\RM Dental Laboratory and Supplies\obj\Debug\RM_Dental_Laboratory_and_Supplies.Forms.Dashboard.AddUser.resources
+D:\C# Projects\RM Dental Laboratory and Supplies\RM Dental Laboratory and Supplies\obj\Debug\RM_Dental_Laboratory_and_Supplies.UserControls.DUE_CASES.resources
+D:\C# Projects\RM Dental Laboratory and Supplies\RM Dental Laboratory and Supplies\obj\Debug\RM_Dental_Laboratory_and_Supplies.UserControls.BillingSOA.resources
