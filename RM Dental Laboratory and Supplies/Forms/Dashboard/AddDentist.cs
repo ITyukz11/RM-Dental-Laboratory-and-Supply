@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RM_Dental_Laboratory_and_Supplies.Database;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -29,6 +30,32 @@ namespace RM_Dental_Laboratory_and_Supplies.Forms.Dashboard
             {
                 // Close the form
                 this.Close();
+            }
+            else if (e.KeyCode == Keys.Enter)
+            {
+                SubmitBtn.PerformClick();
+            }
+        }
+
+        private void SubmitBtn_Click(object sender, EventArgs e)
+        {
+            if (new[] { FullnameTb.Text, AddressTb.Text, ContactNumTb.Text, EmailTb.Text }.Any(string.IsNullOrEmpty))
+            {
+                MessageBox.Show("Please fill out all the blanks", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            { 
+                    SQLManagement sql = new SQLManagement();
+                try
+                {
+                    bool result = sql.InsertData(FullnameTb.Text, AddressTb.Text, ContactNumTb.Text, EmailTb.Text);
+                    if (result) this.Close();
+                }catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                   
+                
             }
         }
     }

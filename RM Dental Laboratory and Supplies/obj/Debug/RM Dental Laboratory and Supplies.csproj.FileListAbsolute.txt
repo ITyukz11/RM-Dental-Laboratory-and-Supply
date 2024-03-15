@@ -17,3 +17,22 @@ D:\C# Projects\RM Dental Laboratory and Supplies\RM Dental Laboratory and Suppli
 D:\C# Projects\RM Dental Laboratory and Supplies\RM Dental Laboratory and Supplies\obj\Debug\RM_Dental_Laboratory_and_Supplies.Forms.Dashboard.AddUser.resources
 D:\C# Projects\RM Dental Laboratory and Supplies\RM Dental Laboratory and Supplies\obj\Debug\RM_Dental_Laboratory_and_Supplies.UserControls.DUE_CASES.resources
 D:\C# Projects\RM Dental Laboratory and Supplies\RM Dental Laboratory and Supplies\obj\Debug\RM_Dental_Laboratory_and_Supplies.UserControls.BillingSOA.resources
+C:\Users\RACHELLE ALMONTE\Source\Repos\ITyukz11\RM-Dental-Laboratory-and-Supply\RM Dental Laboratory and Supplies\bin\Debug\RM Dental Laboratory and Supplies.exe.config
+C:\Users\RACHELLE ALMONTE\Source\Repos\ITyukz11\RM-Dental-Laboratory-and-Supply\RM Dental Laboratory and Supplies\bin\Debug\RM Dental Laboratory and Supplies.exe
+C:\Users\RACHELLE ALMONTE\Source\Repos\ITyukz11\RM-Dental-Laboratory-and-Supply\RM Dental Laboratory and Supplies\bin\Debug\RM Dental Laboratory and Supplies.pdb
+C:\Users\RACHELLE ALMONTE\Source\Repos\ITyukz11\RM-Dental-Laboratory-and-Supply\RM Dental Laboratory and Supplies\obj\Debug\RM Dental Laboratory and Supplies.csproj.AssemblyReference.cache
+C:\Users\RACHELLE ALMONTE\Source\Repos\ITyukz11\RM-Dental-Laboratory-and-Supply\RM Dental Laboratory and Supplies\obj\Debug\RM_Dental_Laboratory_and_Supplies.Forms.Dashboard.AddCase.resources
+C:\Users\RACHELLE ALMONTE\Source\Repos\ITyukz11\RM-Dental-Laboratory-and-Supply\RM Dental Laboratory and Supplies\obj\Debug\RM_Dental_Laboratory_and_Supplies.Forms.Dashboard.AddDentist.resources
+C:\Users\RACHELLE ALMONTE\Source\Repos\ITyukz11\RM-Dental-Laboratory-and-Supply\RM Dental Laboratory and Supplies\obj\Debug\RM_Dental_Laboratory_and_Supplies.Forms.Dashboard.AddUser.resources
+C:\Users\RACHELLE ALMONTE\Source\Repos\ITyukz11\RM-Dental-Laboratory-and-Supply\RM Dental Laboratory and Supplies\obj\Debug\RM_Dental_Laboratory_and_Supplies.MainForm.resources
+C:\Users\RACHELLE ALMONTE\Source\Repos\ITyukz11\RM-Dental-Laboratory-and-Supply\RM Dental Laboratory and Supplies\obj\Debug\RM_Dental_Laboratory_and_Supplies.Login_Authentication.LoginForm.resources
+C:\Users\RACHELLE ALMONTE\Source\Repos\ITyukz11\RM-Dental-Laboratory-and-Supply\RM Dental Laboratory and Supplies\obj\Debug\RM_Dental_Laboratory_and_Supplies.Properties.Resources.resources
+C:\Users\RACHELLE ALMONTE\Source\Repos\ITyukz11\RM-Dental-Laboratory-and-Supply\RM Dental Laboratory and Supplies\obj\Debug\RM_Dental_Laboratory_and_Supplies.UserControls.BillingSOA.resources
+C:\Users\RACHELLE ALMONTE\Source\Repos\ITyukz11\RM-Dental-Laboratory-and-Supply\RM Dental Laboratory and Supplies\obj\Debug\RM_Dental_Laboratory_and_Supplies.UserControls.Dashboard.resources
+C:\Users\RACHELLE ALMONTE\Source\Repos\ITyukz11\RM-Dental-Laboratory-and-Supply\RM Dental Laboratory and Supplies\obj\Debug\RM_Dental_Laboratory_and_Supplies.UserControls.DUE_CASES.resources
+C:\Users\RACHELLE ALMONTE\Source\Repos\ITyukz11\RM-Dental-Laboratory-and-Supply\RM Dental Laboratory and Supplies\obj\Debug\RM_Dental_Laboratory_and_Supplies.UserControls.OutCases.resources
+C:\Users\RACHELLE ALMONTE\Source\Repos\ITyukz11\RM-Dental-Laboratory-and-Supply\RM Dental Laboratory and Supplies\obj\Debug\RM_Dental_Laboratory_and_Supplies.UserControls.ViewDatas.resources
+C:\Users\RACHELLE ALMONTE\Source\Repos\ITyukz11\RM-Dental-Laboratory-and-Supply\RM Dental Laboratory and Supplies\obj\Debug\RM Dental Laboratory and Supplies.csproj.GenerateResource.cache
+C:\Users\RACHELLE ALMONTE\Source\Repos\ITyukz11\RM-Dental-Laboratory-and-Supply\RM Dental Laboratory and Supplies\obj\Debug\RM Dental Laboratory and Supplies.csproj.CoreCompileInputs.cache
+C:\Users\RACHELLE ALMONTE\Source\Repos\ITyukz11\RM-Dental-Laboratory-and-Supply\RM Dental Laboratory and Supplies\obj\Debug\RM Dental Laboratory and Supplies.exe
+C:\Users\RACHELLE ALMONTE\Source\Repos\ITyukz11\RM-Dental-Laboratory-and-Supply\RM Dental Laboratory and Supplies\obj\Debug\RM Dental Laboratory and Supplies.pdb
