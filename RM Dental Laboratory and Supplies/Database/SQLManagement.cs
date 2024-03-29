@@ -13,9 +13,8 @@ namespace RM_Dental_Laboratory_and_Supplies.Database
     public class SQLManagement
     {
         // TO BE FOLLOWED REMOVE THE NECESSARY CONNECTION STRINGS AND HIDE IT 
-        SqlConnection connection = new SqlConnection(@"Server=ADMINISTRATOR; Database=rmdb; User Id=sa; Password=admin");
-        SqlCommand command = new SqlCommand();
-
+        public SqlConnection connection = new SqlConnection(@"Server=ADMINISTRATOR; Database=rmdb; User Id=sa; Password=admin");
+        public SqlCommand command = new SqlCommand();
         public void TryConnection()
         {
             try
@@ -105,42 +104,7 @@ namespace RM_Dental_Laboratory_and_Supplies.Database
             }
         }
 
-        public bool LoginAuth(string username, string password)
-        {
-            try
-            {
-                connection.Open();
-                string query = "SELECT COUNT(*) FROM dbo.users WHERE username=@username AND password=@password";
-                command = new SqlCommand(query, connection);
-
-                command.Parameters.AddWithValue("@username", username);
-                command.Parameters.AddWithValue("@password", password);
-
-                int count = (int)command.ExecuteScalar(); // ExecuteScalar() returns the first column of the first row
-
-                if (count > 0)
-                {
-                    MessageBox.Show("Logged In Successfully!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return true;
-                }
-                else
-                {
-                    MessageBox.Show("Incorrect credentials please try again.", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            finally
-            {
-                connection.Close();
-            }
-        }
-
-
+        //ADD CASE
         public void PopulateDentistComboBox(ComboBox dentist_name, TextBox dentist_id)
         {
             // Dictionary to store dentist names and their corresponding IDs
@@ -197,6 +161,51 @@ namespace RM_Dental_Laboratory_and_Supplies.Database
             };
         }
 
+        public bool InsertCase(string case_type_code, string patient_name, DateTime record_date, TimeSpan record_time, string status,
+     string case_, string description, DateTime due_date, TimeSpan due_time, string remarks, string provided, byte[] image, int dentist_id, int user_id)
+        {
+            try
+            {
+                connection.Open();
+                string query = @"INSERT INTO dbo.cases (case_type_code, patient_name, record_date, record_time, status, [case], description, due_date, due_time, remarks, provided, image, dentist_id, user_id) 
+                    VALUES (@case_type_code,  @patient_name, @record_date, @record_time, @status, @case, @description, @due_date, @due_time, @remarks, @provided, @image, @dentist_id, @user_id)";
+                SqlCommand command = new SqlCommand(query, connection);
 
+                command.Parameters.AddWithValue("@case_type_code", case_type_code);
+                command.Parameters.AddWithValue("@patient_name", patient_name); 
+                command.Parameters.AddWithValue("@record_date", record_date);
+                command.Parameters.AddWithValue("@record_time", record_time);
+                command.Parameters.AddWithValue("@status", status);
+                command.Parameters.AddWithValue("@case", case_);
+                command.Parameters.AddWithValue("@description", description);
+                command.Parameters.AddWithValue("@due_date", due_date);
+                command.Parameters.AddWithValue("@due_time", due_time);
+                command.Parameters.AddWithValue("@remarks", remarks);
+                command.Parameters.AddWithValue("@provided", provided);
+                command.Parameters.AddWithValue("@image", image);
+                command.Parameters.AddWithValue("@dentist_id", dentist_id);
+                command.Parameters.AddWithValue("@user_id", user_id);
+
+                int rowsAffected = command.ExecuteNonQuery();
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Successfully added new case", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }
