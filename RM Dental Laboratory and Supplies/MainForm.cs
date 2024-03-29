@@ -1,4 +1,6 @@
 ﻿using RM_Dental_Laboratory_and_Supplies.Database;
+using RM_Dental_Laboratory_and_Supplies.Global;
+using RM_Dental_Laboratory_and_Supplies.Global.UpdateCase;
 using RM_Dental_Laboratory_and_Supplies.Login_Authentication;
 using System;
 using System.Collections.Generic;
@@ -16,8 +18,6 @@ namespace RM_Dental_Laboratory_and_Supplies
     public partial class MainForm : Form
     {
         private Dictionary<Button, Panel> buttonPanelMap = new Dictionary<Button, Panel>();
-        LoginForm loginform = new LoginForm();
-        public string Current_user { get; private set; } // Encapsulated property
 
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
@@ -30,11 +30,6 @@ namespace RM_Dental_Laboratory_and_Supplies
       int nHeightEllipse // width of ellipse
   );
 
-        public void SetCurrentUser(string username)
-        {
-            Current_user = username;
-            CurrentUserLbl.Text = Current_user; // Update UI with current user
-        }
         public MainForm()
         {
             InitializeComponent();
@@ -42,8 +37,10 @@ namespace RM_Dental_Laboratory_and_Supplies
             buttonPanelMap.Add(DashboardBtn, DashboardPanel);
             buttonPanelMap.Add(DueCasesBtn, DueCasesPanel);
             buttonPanelMap.Add(ViewDatasBtn, ViewDatasPanel);
+            buttonPanelMap.Add(CustomerBtn, CustomerPanel);
             buttonPanelMap.Add(OutCasesBtn, OutCasesPanel);
             buttonPanelMap.Add(BillinSoaBtn, BillingSOAPanel);
+            buttonPanelMap.Add(SettingsBtn, SettingsPanel);
 
             //DASHBOARD AS DEFAULT
             UserControls.Dashboard dashboard = new UserControls.Dashboard();
@@ -51,24 +48,36 @@ namespace RM_Dental_Laboratory_and_Supplies
             HandlePanelVisibility(buttonPanelMap, DashboardBtn);
 
             // set current user
-            CurrentUserLbl.TextChanged += CurrentUserLbl_TextChanged;
+            CurrentUserLbl.TextChanged += CurrentUserLbl_TextChanged;// Update UI with current user
 
             // set form border radius round
             this.FormBorderStyle = FormBorderStyle.None;
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
 
+
         }
 
-      
+
+        private UserControl currentControl = null;
+        private CaseData caseData;
+
+        SQLManagement_UpdateCase sql = new SQLManagement_UpdateCase();
+        public void LoadCases()
+        {
+            // Retrieve cases data from database
+            caseData = sql.RetrieveCases();
+        }
 
         private void addUserControl(UserControl userControl)
         {
-            userControl.Dock = DockStyle.Fill; 
+            userControl.Dock = DockStyle.Fill;
             userControl.BackColor = Color.White;
             PanelContainer.Controls.Clear();
             PanelContainer.Controls.Add(userControl);
             userControl.BringToFront();
 
+            // Update the current control
+            currentControl = userControl;
         }
 
         private void HandlePanelVisibility(Dictionary<Button, Panel> panelMap, Button clickedButton)
@@ -86,47 +95,88 @@ namespace RM_Dental_Laboratory_and_Supplies
             }
         }
 
-
         private void DashboardBtn_Click(object sender, EventArgs e)
         {
-            UserControls.Dashboard dashboard = new UserControls.Dashboard();
-            addUserControl(dashboard);
-            HandlePanelVisibility(buttonPanelMap, DashboardBtn);
+            if (currentControl == null || !(currentControl is UserControls.Dashboard))
+            {
+                UserControls.Dashboard dashboard = new UserControls.Dashboard();
+                addUserControl(dashboard);
+                HandlePanelVisibility(buttonPanelMap, DashboardBtn);
+            }
         }
 
         private void DueCasesBtn_Click(object sender, EventArgs e)
         {
-            UserControls.DUE_CASES duecases = new UserControls.DUE_CASES();
-            addUserControl(duecases);
-            HandlePanelVisibility(buttonPanelMap, DueCasesBtn);
-        }
-        private void ViewDatasBtn_Click(object sender, EventArgs e)
-        {
-            UserControls.ViewDatas viewcases = new UserControls.ViewDatas();
-            addUserControl(viewcases);
-            HandlePanelVisibility(buttonPanelMap, ViewDatasBtn);
+            if (currentControl == null || !(currentControl is UserControls.DUE_CASES))
+            {
+                UserControls.DUE_CASES duecases = new UserControls.DUE_CASES();
+                addUserControl(duecases);
+                HandlePanelVisibility(buttonPanelMap, DueCasesBtn);
+            }
         }
 
+        private void ViewDatasBtn_Click(object sender, EventArgs e)
+        {
+            if (currentControl == null || !(currentControl is UserControls.UpdateCase))
+            {
+                UserControls.UpdateCase viewcases = new UserControls.UpdateCase();
+                addUserControl(viewcases);
+                HandlePanelVisibility(buttonPanelMap, ViewDatasBtn);
+            }
+        }
 
         private void OutCasesBtn_Click(object sender, EventArgs e)
         {
-            UserControls.OutCases outcases = new UserControls.OutCases();
-            addUserControl(outcases);
-            HandlePanelVisibility(buttonPanelMap, OutCasesBtn);
+            if (currentControl == null || !(currentControl is UserControls.OutCases))
+            {
+                UserControls.OutCases outcases = new UserControls.OutCases();
+                addUserControl(outcases);
+                HandlePanelVisibility(buttonPanelMap, OutCasesBtn);
+            }
         }
 
         private void BillinSoaBtn_Click(object sender, EventArgs e)
         {
-            UserControls.BillingSOA billingSoa = new UserControls.BillingSOA();
-            addUserControl(billingSoa);
-            HandlePanelVisibility(buttonPanelMap, BillinSoaBtn);
+            if (currentControl == null || !(currentControl is UserControls.BillingSOA))
+            {
+                UserControls.BillingSOA billingSoa = new UserControls.BillingSOA();
+                addUserControl(billingSoa);
+                HandlePanelVisibility(buttonPanelMap, BillinSoaBtn);
+            }
         }
+
+        private void CustomerBtn_Click(object sender, EventArgs e)
+        {
+            if (currentControl == null || !(currentControl is UserControls.Customer))
+            {
+                UserControls.Customer customer = new UserControls.Customer();
+                addUserControl(customer);
+                HandlePanelVisibility(buttonPanelMap, CustomerBtn);
+            }
+        }
+
+        private void SettingsBtn_Click(object sender, EventArgs e)
+        {
+            if (currentControl == null || !(currentControl is UserControls.Settings))
+            {
+                UserControls.Settings settings = new UserControls.Settings();
+                addUserControl(settings);
+                HandlePanelVisibility(buttonPanelMap, SettingsBtn);
+            }
+        }
+
 
         private void ClosePB_Click(object sender, EventArgs e)
         {
-            this.Close();
-            Login_Authentication.LoginForm loginForm= new LoginForm();
-            loginForm.Show();
+          DialogResult result = MessageBox.Show("Are you sure you want to exit?","",MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if(result == DialogResult.Yes)
+            {
+                this.Close();
+                LoginForm loginForm = new LoginForm();
+                loginForm.Show();
+            }
+
         }
 
         private void MinimizePB_Click(object sender, EventArgs e)
@@ -145,7 +195,11 @@ namespace RM_Dental_Laboratory_and_Supplies
             else
             {
                 // Maximize the form
+
+                this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
                 this.WindowState = FormWindowState.Maximized;
+
+
                 this.Region = null;
             }
         }
@@ -169,5 +223,17 @@ namespace RM_Dental_Laboratory_and_Supplies
             label.Width = preferredWidth;
         }
 
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+                
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            CurrentUserLbl.Text = Globals.Current_User;
+
+        }
+
+  
     }
 }

@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -53,11 +68,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database\SQLManagement.cs" />
-    <Compile Include="DataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </Compile>
+    <Compile Include="Database\SQLManagement_DueCase.cs" />
+    <Compile Include="Database\SQLManagement_Login.cs" />
+    <Compile Include="Database\SQLManagement_UpdateCase.cs" />
     <Compile Include="Forms\Dashboard\AddCase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +89,14 @@
     <Compile Include="Forms\Dashboard\AddUser.Designer.cs">
       <DependentUpon>AddUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Update Case\UpdateCase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Update Case\UpdateCase.Designer.cs">
+      <DependentUpon>UpdateCase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Global\Globals.cs" />
+    <Compile Include="Global\UpdateCase\CaseData.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,16 +116,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="rmdbDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>rmdbDataSet1.xsd</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\BillingSOA.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\BillingSOA.Designer.cs">
       <DependentUpon>BillingSOA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Customer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Customer.Designer.cs">
+      <DependentUpon>Customer.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Dashboard.cs">
       <SubType>UserControl</SubType>
@@ -124,12 +146,19 @@
     <Compile Include="UserControls\OutCases.Designer.cs">
       <DependentUpon>OutCases.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\ViewDatas.cs">
+    <Compile Include="UserControls\Settings.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\ViewDatas.Designer.cs">
-      <DependentUpon>ViewDatas.cs</DependentUpon>
+    <Compile Include="UserControls\Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UpdateCase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UpdateCase.Designer.cs">
+      <DependentUpon>UpdateCase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\FormUtils.cs" />
     <EmbeddedResource Include="Forms\Dashboard\AddCase.resx">
       <DependentUpon>AddCase.cs</DependentUpon>
     </EmbeddedResource>
@@ -138,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dashboard\AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Update Case\UpdateCase.resx">
+      <DependentUpon>UpdateCase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -153,6 +185,9 @@
     <EmbeddedResource Include="UserControls\BillingSOA.resx">
       <DependentUpon>BillingSOA.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Customer.resx">
+      <DependentUpon>Customer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -162,20 +197,12 @@
     <EmbeddedResource Include="UserControls\OutCases.resx">
       <DependentUpon>OutCases.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\ViewDatas.resx">
-      <DependentUpon>ViewDatas.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="DataSet1.xsc">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="DataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="DataSet1.xss">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
+    <EmbeddedResource Include="UserControls\UpdateCase.resx">
+      <DependentUpon>UpdateCase.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -185,17 +212,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="rmdbDataSet1.xsc">
-      <DependentUpon>rmdbDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="rmdbDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>rmdbDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="rmdbDataSet1.xss">
-      <DependentUpon>rmdbDataSet1.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -239,6 +255,18 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

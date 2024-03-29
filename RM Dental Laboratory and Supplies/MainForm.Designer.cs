@@ -32,6 +32,7 @@ namespace RM_Dental_Laboratory_and_Supplies
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.CurrentUserLbl = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.MinimizePB = new System.Windows.Forms.PictureBox();
@@ -40,26 +41,29 @@ namespace RM_Dental_Laboratory_and_Supplies
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.BillinSoaBtn = new System.Windows.Forms.Button();
-            this.OutCasesBtn = new System.Windows.Forms.Button();
+            this.SettingsPanel = new System.Windows.Forms.Panel();
+            this.SettingsBtn = new System.Windows.Forms.Button();
+            this.CustomerPanel = new System.Windows.Forms.Panel();
+            this.CustomerBtn = new System.Windows.Forms.Button();
             this.BillingSOAPanel = new System.Windows.Forms.Panel();
+            this.ViewDatasPanel = new System.Windows.Forms.Panel();
+            this.DueCasesPanel = new System.Windows.Forms.Panel();
+            this.OutCasesPanel = new System.Windows.Forms.Panel();
+            this.DashboardPanel = new System.Windows.Forms.Panel();
             this.DashboardBtn = new System.Windows.Forms.Button();
             this.ViewDatasBtn = new System.Windows.Forms.Button();
             this.DueCasesBtn = new System.Windows.Forms.Button();
-            this.OutCasesPanel = new System.Windows.Forms.Panel();
-            this.ViewDatasPanel = new System.Windows.Forms.Panel();
-            this.DueCasesPanel = new System.Windows.Forms.Panel();
-            this.DashboardPanel = new System.Windows.Forms.Panel();
+            this.OutCasesBtn = new System.Windows.Forms.Button();
+            this.BillinSoaBtn = new System.Windows.Forms.Button();
             this.PanelContainer = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizePB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MaximizePB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ClosePB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -76,8 +80,19 @@ namespace RM_Dental_Laboratory_and_Supplies
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1566, 77);
+            this.panel2.Size = new System.Drawing.Size(1920, 77);
             this.panel2.TabIndex = 4;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel1.AutoSize = true;
+            this.flowLayoutPanel1.Controls.Add(this.CurrentUserLbl);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(1661, 28);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(71, 28);
+            this.flowLayoutPanel1.TabIndex = 0;
             // 
             // CurrentUserLbl
             // 
@@ -98,7 +113,7 @@ namespace RM_Dental_Laboratory_and_Supplies
             // 
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.Image = global::RM_Dental_Laboratory_and_Supplies.Properties.Resources.user;
-            this.pictureBox2.Location = new System.Drawing.Point(1385, 0);
+            this.pictureBox2.Location = new System.Drawing.Point(1739, 0);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(51, 77);
@@ -111,7 +126,7 @@ namespace RM_Dental_Laboratory_and_Supplies
             this.MinimizePB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.MinimizePB.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MinimizePB.Image = global::RM_Dental_Laboratory_and_Supplies.Properties.Resources.minimize_icon;
-            this.MinimizePB.Location = new System.Drawing.Point(1458, 18);
+            this.MinimizePB.Location = new System.Drawing.Point(1812, 18);
             this.MinimizePB.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MinimizePB.Name = "MinimizePB";
             this.MinimizePB.Size = new System.Drawing.Size(24, 25);
@@ -125,7 +140,7 @@ namespace RM_Dental_Laboratory_and_Supplies
             this.MaximizePB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.MaximizePB.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MaximizePB.Image = global::RM_Dental_Laboratory_and_Supplies.Properties.Resources.maximize_icon;
-            this.MaximizePB.Location = new System.Drawing.Point(1491, 18);
+            this.MaximizePB.Location = new System.Drawing.Point(1845, 18);
             this.MaximizePB.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizePB.Name = "MaximizePB";
             this.MaximizePB.Size = new System.Drawing.Size(24, 25);
@@ -139,7 +154,7 @@ namespace RM_Dental_Laboratory_and_Supplies
             this.ClosePB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ClosePB.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ClosePB.Image = global::RM_Dental_Laboratory_and_Supplies.Properties.Resources.close_icon;
-            this.ClosePB.Location = new System.Drawing.Point(1524, 18);
+            this.ClosePB.Location = new System.Drawing.Point(1878, 18);
             this.ClosePB.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ClosePB.Name = "ClosePB";
             this.ClosePB.Size = new System.Drawing.Size(24, 25);
@@ -174,69 +189,129 @@ namespace RM_Dental_Laboratory_and_Supplies
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.MidnightBlue;
-            this.panel1.Controls.Add(this.BillinSoaBtn);
-            this.panel1.Controls.Add(this.OutCasesBtn);
+            this.panel1.Controls.Add(this.SettingsPanel);
+            this.panel1.Controls.Add(this.SettingsBtn);
+            this.panel1.Controls.Add(this.CustomerPanel);
+            this.panel1.Controls.Add(this.CustomerBtn);
             this.panel1.Controls.Add(this.BillingSOAPanel);
+            this.panel1.Controls.Add(this.ViewDatasPanel);
+            this.panel1.Controls.Add(this.DueCasesPanel);
+            this.panel1.Controls.Add(this.OutCasesPanel);
+            this.panel1.Controls.Add(this.DashboardPanel);
             this.panel1.Controls.Add(this.DashboardBtn);
             this.panel1.Controls.Add(this.ViewDatasBtn);
             this.panel1.Controls.Add(this.DueCasesBtn);
-            this.panel1.Controls.Add(this.OutCasesPanel);
-            this.panel1.Controls.Add(this.ViewDatasPanel);
-            this.panel1.Controls.Add(this.DueCasesPanel);
-            this.panel1.Controls.Add(this.DashboardPanel);
+            this.panel1.Controls.Add(this.OutCasesBtn);
+            this.panel1.Controls.Add(this.BillinSoaBtn);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 77);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1566, 77);
+            this.panel1.Size = new System.Drawing.Size(1920, 77);
             this.panel1.TabIndex = 5;
             // 
-            // BillinSoaBtn
+            // SettingsPanel
             // 
-            this.BillinSoaBtn.BackColor = System.Drawing.Color.Transparent;
-            this.BillinSoaBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BillinSoaBtn.FlatAppearance.BorderSize = 0;
-            this.BillinSoaBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkBlue;
-            this.BillinSoaBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkBlue;
-            this.BillinSoaBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BillinSoaBtn.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BillinSoaBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.BillinSoaBtn.Location = new System.Drawing.Point(940, 0);
-            this.BillinSoaBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.BillinSoaBtn.Name = "BillinSoaBtn";
-            this.BillinSoaBtn.Size = new System.Drawing.Size(225, 77);
-            this.BillinSoaBtn.TabIndex = 6;
-            this.BillinSoaBtn.Text = "Billing / SOA";
-            this.BillinSoaBtn.UseVisualStyleBackColor = false;
-            this.BillinSoaBtn.Click += new System.EventHandler(this.BillinSoaBtn_Click);
+            this.SettingsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.SettingsPanel.BackColor = System.Drawing.Color.Red;
+            this.SettingsPanel.Location = new System.Drawing.Point(1691, 69);
+            this.SettingsPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.SettingsPanel.Name = "SettingsPanel";
+            this.SettingsPanel.Size = new System.Drawing.Size(225, 8);
+            this.SettingsPanel.TabIndex = 9;
             // 
-            // OutCasesBtn
+            // SettingsBtn
             // 
-            this.OutCasesBtn.BackColor = System.Drawing.Color.Transparent;
-            this.OutCasesBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.OutCasesBtn.FlatAppearance.BorderSize = 0;
-            this.OutCasesBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkBlue;
-            this.OutCasesBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkBlue;
-            this.OutCasesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.OutCasesBtn.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OutCasesBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.OutCasesBtn.Location = new System.Drawing.Point(706, 0);
-            this.OutCasesBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.OutCasesBtn.Name = "OutCasesBtn";
-            this.OutCasesBtn.Size = new System.Drawing.Size(225, 77);
-            this.OutCasesBtn.TabIndex = 3;
-            this.OutCasesBtn.Text = "Out Cases";
-            this.OutCasesBtn.UseVisualStyleBackColor = false;
-            this.OutCasesBtn.Click += new System.EventHandler(this.OutCasesBtn_Click);
+            this.SettingsBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.SettingsBtn.BackColor = System.Drawing.Color.Transparent;
+            this.SettingsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SettingsBtn.FlatAppearance.BorderSize = 0;
+            this.SettingsBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkBlue;
+            this.SettingsBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkBlue;
+            this.SettingsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SettingsBtn.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SettingsBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.SettingsBtn.Location = new System.Drawing.Point(1691, 0);
+            this.SettingsBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.SettingsBtn.Name = "SettingsBtn";
+            this.SettingsBtn.Size = new System.Drawing.Size(225, 77);
+            this.SettingsBtn.TabIndex = 10;
+            this.SettingsBtn.Text = "Settings";
+            this.SettingsBtn.UseVisualStyleBackColor = false;
+            this.SettingsBtn.Click += new System.EventHandler(this.SettingsBtn_Click);
+            // 
+            // CustomerPanel
+            // 
+            this.CustomerPanel.BackColor = System.Drawing.Color.Red;
+            this.CustomerPanel.Location = new System.Drawing.Point(705, 69);
+            this.CustomerPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.CustomerPanel.Name = "CustomerPanel";
+            this.CustomerPanel.Size = new System.Drawing.Size(225, 8);
+            this.CustomerPanel.TabIndex = 7;
+            // 
+            // CustomerBtn
+            // 
+            this.CustomerBtn.BackColor = System.Drawing.Color.Transparent;
+            this.CustomerBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CustomerBtn.FlatAppearance.BorderSize = 0;
+            this.CustomerBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkBlue;
+            this.CustomerBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkBlue;
+            this.CustomerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CustomerBtn.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CustomerBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.CustomerBtn.Location = new System.Drawing.Point(705, 0);
+            this.CustomerBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.CustomerBtn.Name = "CustomerBtn";
+            this.CustomerBtn.Size = new System.Drawing.Size(225, 77);
+            this.CustomerBtn.TabIndex = 8;
+            this.CustomerBtn.Text = "Costumer";
+            this.CustomerBtn.UseVisualStyleBackColor = false;
+            this.CustomerBtn.Click += new System.EventHandler(this.CustomerBtn_Click);
             // 
             // BillingSOAPanel
             // 
             this.BillingSOAPanel.BackColor = System.Drawing.Color.Red;
-            this.BillingSOAPanel.Location = new System.Drawing.Point(940, 69);
+            this.BillingSOAPanel.Location = new System.Drawing.Point(1172, 69);
             this.BillingSOAPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BillingSOAPanel.Name = "BillingSOAPanel";
             this.BillingSOAPanel.Size = new System.Drawing.Size(225, 8);
             this.BillingSOAPanel.TabIndex = 6;
+            // 
+            // ViewDatasPanel
+            // 
+            this.ViewDatasPanel.BackColor = System.Drawing.Color.Red;
+            this.ViewDatasPanel.Location = new System.Drawing.Point(472, 69);
+            this.ViewDatasPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ViewDatasPanel.Name = "ViewDatasPanel";
+            this.ViewDatasPanel.Size = new System.Drawing.Size(225, 8);
+            this.ViewDatasPanel.TabIndex = 5;
+            // 
+            // DueCasesPanel
+            // 
+            this.DueCasesPanel.BackColor = System.Drawing.Color.Red;
+            this.DueCasesPanel.Location = new System.Drawing.Point(238, 69);
+            this.DueCasesPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.DueCasesPanel.Name = "DueCasesPanel";
+            this.DueCasesPanel.Size = new System.Drawing.Size(225, 8);
+            this.DueCasesPanel.TabIndex = 5;
+            // 
+            // OutCasesPanel
+            // 
+            this.OutCasesPanel.BackColor = System.Drawing.Color.Red;
+            this.OutCasesPanel.Location = new System.Drawing.Point(938, 69);
+            this.OutCasesPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.OutCasesPanel.Name = "OutCasesPanel";
+            this.OutCasesPanel.Size = new System.Drawing.Size(225, 8);
+            this.OutCasesPanel.TabIndex = 5;
+            // 
+            // DashboardPanel
+            // 
+            this.DashboardPanel.BackColor = System.Drawing.Color.Red;
+            this.DashboardPanel.Location = new System.Drawing.Point(4, 69);
+            this.DashboardPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.DashboardPanel.Name = "DashboardPanel";
+            this.DashboardPanel.Size = new System.Drawing.Size(225, 8);
+            this.DashboardPanel.TabIndex = 4;
             // 
             // DashboardBtn
             // 
@@ -272,7 +347,7 @@ namespace RM_Dental_Laboratory_and_Supplies
             this.ViewDatasBtn.Name = "ViewDatasBtn";
             this.ViewDatasBtn.Size = new System.Drawing.Size(225, 77);
             this.ViewDatasBtn.TabIndex = 2;
-            this.ViewDatasBtn.Text = "View Datas";
+            this.ViewDatasBtn.Text = "Cases";
             this.ViewDatasBtn.UseVisualStyleBackColor = false;
             this.ViewDatasBtn.Click += new System.EventHandler(this.ViewDatasBtn_Click);
             // 
@@ -295,41 +370,43 @@ namespace RM_Dental_Laboratory_and_Supplies
             this.DueCasesBtn.UseVisualStyleBackColor = false;
             this.DueCasesBtn.Click += new System.EventHandler(this.DueCasesBtn_Click);
             // 
-            // OutCasesPanel
+            // OutCasesBtn
             // 
-            this.OutCasesPanel.BackColor = System.Drawing.Color.Red;
-            this.OutCasesPanel.Location = new System.Drawing.Point(706, 69);
-            this.OutCasesPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.OutCasesPanel.Name = "OutCasesPanel";
-            this.OutCasesPanel.Size = new System.Drawing.Size(225, 8);
-            this.OutCasesPanel.TabIndex = 5;
+            this.OutCasesBtn.BackColor = System.Drawing.Color.Transparent;
+            this.OutCasesBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.OutCasesBtn.FlatAppearance.BorderSize = 0;
+            this.OutCasesBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkBlue;
+            this.OutCasesBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkBlue;
+            this.OutCasesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.OutCasesBtn.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OutCasesBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.OutCasesBtn.Location = new System.Drawing.Point(938, 0);
+            this.OutCasesBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.OutCasesBtn.Name = "OutCasesBtn";
+            this.OutCasesBtn.Size = new System.Drawing.Size(225, 77);
+            this.OutCasesBtn.TabIndex = 3;
+            this.OutCasesBtn.Text = "Out Cases";
+            this.OutCasesBtn.UseVisualStyleBackColor = false;
+            this.OutCasesBtn.Click += new System.EventHandler(this.OutCasesBtn_Click);
             // 
-            // ViewDatasPanel
+            // BillinSoaBtn
             // 
-            this.ViewDatasPanel.BackColor = System.Drawing.Color.Red;
-            this.ViewDatasPanel.Location = new System.Drawing.Point(472, 69);
-            this.ViewDatasPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ViewDatasPanel.Name = "ViewDatasPanel";
-            this.ViewDatasPanel.Size = new System.Drawing.Size(225, 8);
-            this.ViewDatasPanel.TabIndex = 5;
-            // 
-            // DueCasesPanel
-            // 
-            this.DueCasesPanel.BackColor = System.Drawing.Color.Red;
-            this.DueCasesPanel.Location = new System.Drawing.Point(238, 69);
-            this.DueCasesPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.DueCasesPanel.Name = "DueCasesPanel";
-            this.DueCasesPanel.Size = new System.Drawing.Size(225, 8);
-            this.DueCasesPanel.TabIndex = 5;
-            // 
-            // DashboardPanel
-            // 
-            this.DashboardPanel.BackColor = System.Drawing.Color.Red;
-            this.DashboardPanel.Location = new System.Drawing.Point(4, 69);
-            this.DashboardPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.DashboardPanel.Name = "DashboardPanel";
-            this.DashboardPanel.Size = new System.Drawing.Size(225, 8);
-            this.DashboardPanel.TabIndex = 4;
+            this.BillinSoaBtn.BackColor = System.Drawing.Color.Transparent;
+            this.BillinSoaBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BillinSoaBtn.FlatAppearance.BorderSize = 0;
+            this.BillinSoaBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkBlue;
+            this.BillinSoaBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkBlue;
+            this.BillinSoaBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BillinSoaBtn.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BillinSoaBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.BillinSoaBtn.Location = new System.Drawing.Point(1172, 0);
+            this.BillinSoaBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.BillinSoaBtn.Name = "BillinSoaBtn";
+            this.BillinSoaBtn.Size = new System.Drawing.Size(225, 77);
+            this.BillinSoaBtn.TabIndex = 6;
+            this.BillinSoaBtn.Text = "Billing / SOA";
+            this.BillinSoaBtn.UseVisualStyleBackColor = false;
+            this.BillinSoaBtn.Click += new System.EventHandler(this.BillinSoaBtn_Click);
             // 
             // PanelContainer
             // 
@@ -338,42 +415,34 @@ namespace RM_Dental_Laboratory_and_Supplies
             this.PanelContainer.Location = new System.Drawing.Point(0, 154);
             this.PanelContainer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PanelContainer.Name = "PanelContainer";
-            this.PanelContainer.Size = new System.Drawing.Size(1566, 777);
+            this.PanelContainer.Size = new System.Drawing.Size(1920, 926);
             this.PanelContainer.TabIndex = 6;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel1.AutoSize = true;
-            this.flowLayoutPanel1.Controls.Add(this.CurrentUserLbl);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(1307, 28);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(71, 28);
-            this.flowLayoutPanel1.TabIndex = 0;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1566, 931);
+            this.ClientSize = new System.Drawing.Size(1920, 1080);
             this.Controls.Add(this.PanelContainer);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizePB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MaximizePB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ClosePB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -400,6 +469,10 @@ namespace RM_Dental_Laboratory_and_Supplies
         private System.Windows.Forms.Button BillinSoaBtn;
         private System.Windows.Forms.Panel BillingSOAPanel;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Button CustomerBtn;
+        private System.Windows.Forms.Panel SettingsPanel;
+        private System.Windows.Forms.Button SettingsBtn;
+        private System.Windows.Forms.Panel CustomerPanel;
     }
 }
 

@@ -1,4 +1,5 @@
-﻿using RM_Dental_Laboratory_and_Supplies.Forms.Dashboard;
+﻿using RM_Dental_Laboratory_and_Supplies.Database;
+using RM_Dental_Laboratory_and_Supplies.Forms.Dashboard;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,18 +17,10 @@ namespace RM_Dental_Laboratory_and_Supplies.UserControls
         public Dashboard()
         {
             InitializeComponent();
-        }
-        private void AddCaseBtn_Click(object sender, EventArgs e)
-        {
-            Forms.Dashboard.AddCase addCase = new Forms.Dashboard.AddCase();
-            addCase.ShowDialog();
-        }
 
-        private void AddDentistBtn_Click(object sender, EventArgs e)
-        {
-            Forms.Dashboard.AddDentist addDentist = new Forms.Dashboard.AddDentist();
-            addDentist.ShowDialog();
-        }
+        } 
+
+  
 
         private void AddUserBtn_Click(object sender, EventArgs e)
         {

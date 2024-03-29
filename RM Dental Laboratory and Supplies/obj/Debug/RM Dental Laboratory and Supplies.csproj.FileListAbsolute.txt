@@ -31,8 +31,11 @@ C:\Users\RACHELLE ALMONTE\Source\Repos\ITyukz11\RM-Dental-Laboratory-and-Supply\
 C:\Users\RACHELLE ALMONTE\Source\Repos\ITyukz11\RM-Dental-Laboratory-and-Supply\RM Dental Laboratory and Supplies\obj\Debug\RM_Dental_Laboratory_and_Supplies.UserControls.Dashboard.resources
 C:\Users\RACHELLE ALMONTE\Source\Repos\ITyukz11\RM-Dental-Laboratory-and-Supply\RM Dental Laboratory and Supplies\obj\Debug\RM_Dental_Laboratory_and_Supplies.UserControls.DUE_CASES.resources
 C:\Users\RACHELLE ALMONTE\Source\Repos\ITyukz11\RM-Dental-Laboratory-and-Supply\RM Dental Laboratory and Supplies\obj\Debug\RM_Dental_Laboratory_and_Supplies.UserControls.OutCases.resources
-C:\Users\RACHELLE ALMONTE\Source\Repos\ITyukz11\RM-Dental-Laboratory-and-Supply\RM Dental Laboratory and Supplies\obj\Debug\RM_Dental_Laboratory_and_Supplies.UserControls.ViewDatas.resources
 C:\Users\RACHELLE ALMONTE\Source\Repos\ITyukz11\RM-Dental-Laboratory-and-Supply\RM Dental Laboratory and Supplies\obj\Debug\RM Dental Laboratory and Supplies.csproj.GenerateResource.cache
 C:\Users\RACHELLE ALMONTE\Source\Repos\ITyukz11\RM-Dental-Laboratory-and-Supply\RM Dental Laboratory and Supplies\obj\Debug\RM Dental Laboratory and Supplies.csproj.CoreCompileInputs.cache
 C:\Users\RACHELLE ALMONTE\Source\Repos\ITyukz11\RM-Dental-Laboratory-and-Supply\RM Dental Laboratory and Supplies\obj\Debug\RM Dental Laboratory and Supplies.exe
 C:\Users\RACHELLE ALMONTE\Source\Repos\ITyukz11\RM-Dental-Laboratory-and-Supply\RM Dental Laboratory and Supplies\obj\Debug\RM Dental Laboratory and Supplies.pdb
+C:\Users\RACHELLE ALMONTE\Source\Repos\ITyukz11\RM-Dental-Laboratory-and-Supply\RM Dental Laboratory and Supplies\obj\Debug\RM_Dental_Laboratory_and_Supplies.UserControls.UpdateCase.resources
+C:\Users\RACHELLE ALMONTE\Source\Repos\ITyukz11\RM-Dental-Laboratory-and-Supply\RM Dental Laboratory and Supplies\obj\Debug\RM_Dental_Laboratory_and_Supplies.Forms.Update_Case.UpdateCase.resources
+C:\Users\RACHELLE ALMONTE\Source\Repos\ITyukz11\RM-Dental-Laboratory-and-Supply\RM Dental Laboratory and Supplies\obj\Debug\RM_Dental_Laboratory_and_Supplies.UserControls.Customer.resources
+C:\Users\RACHELLE ALMONTE\Source\Repos\ITyukz11\RM-Dental-Laboratory-and-Supply\RM Dental Laboratory and Supplies\obj\Debug\RM_Dental_Laboratory_and_Supplies.UserControls.Settings.resources

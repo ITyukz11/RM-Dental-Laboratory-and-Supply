@@ -38,7 +38,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.ExitBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,8 +79,7 @@
             this.UsernameTB.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.UsernameTB.Name = "UsernameTB";
             this.UsernameTB.Size = new System.Drawing.Size(307, 37);
-            this.UsernameTB.TabIndex = 5;
-            this.UsernameTB.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UsernameTB_KeyDown);
+            this.UsernameTB.TabIndex = 0;
             // 
             // pictureBox1
             // 
@@ -102,8 +101,7 @@
             this.PasswordTb.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PasswordTb.Name = "PasswordTb";
             this.PasswordTb.Size = new System.Drawing.Size(307, 37);
-            this.PasswordTb.TabIndex = 8;
-            this.PasswordTb.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PasswordTb_KeyDown);
+            this.PasswordTb.TabIndex = 1;
             // 
             // label2
             // 
@@ -140,7 +138,7 @@
             this.checkBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(148, 24);
-            this.checkBox1.TabIndex = 10;
+            this.checkBox1.TabIndex = 3;
             this.checkBox1.Text = "Show Password";
             this.checkBox1.UseVisualStyleBackColor = false;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
@@ -158,21 +156,21 @@
             this.label4.TabIndex = 12;
             this.label4.Text = "Version 1.0.0";
             // 
-            // button1
+            // ExitBtn
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.button1.Location = new System.Drawing.Point(35, 554);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(456, 48);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Exit";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.ExitBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.ExitBtn.FlatAppearance.BorderSize = 0;
+            this.ExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ExitBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ExitBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.ExitBtn.Location = new System.Drawing.Point(35, 554);
+            this.ExitBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ExitBtn.Name = "ExitBtn";
+            this.ExitBtn.Size = new System.Drawing.Size(456, 48);
+            this.ExitBtn.TabIndex = 5;
+            this.ExitBtn.Text = "Exit";
+            this.ExitBtn.UseVisualStyleBackColor = false;
+            this.ExitBtn.Click += new System.EventHandler(this.button1_Click);
             // 
             // LoginForm
             // 
@@ -180,7 +178,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(15)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(528, 696);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.ExitBtn);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.label3);
@@ -212,7 +210,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ExitBtn;
         private System.Windows.Forms.TextBox PasswordTb;
     }
 }

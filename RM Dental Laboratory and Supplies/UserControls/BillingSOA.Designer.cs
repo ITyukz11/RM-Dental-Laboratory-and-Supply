@@ -44,9 +44,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(209, 198);
+            this.label2.Location = new System.Drawing.Point(314, 305);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 17);
+            this.label2.Size = new System.Drawing.Size(59, 23);
             this.label2.TabIndex = 13;
             this.label2.Text = "Filter:";
             // 
@@ -54,27 +55,30 @@
             // 
             this.comboBox1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(212, 218);
+            this.comboBox1.Location = new System.Drawing.Point(318, 335);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
+            this.comboBox1.Size = new System.Drawing.Size(180, 29);
             this.comboBox1.TabIndex = 12;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(0, 198);
+            this.label1.Location = new System.Drawing.Point(0, 305);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 17);
+            this.label1.Size = new System.Drawing.Size(83, 23);
             this.label1.TabIndex = 11;
             this.label1.Text = "Search:";
             // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(3, 218);
+            this.textBox1.Location = new System.Drawing.Point(4, 335);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(203, 23);
+            this.textBox1.Size = new System.Drawing.Size(302, 31);
             this.textBox1.TabIndex = 10;
             // 
             // dataGridView1
@@ -83,9 +87,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 247);
+            this.dataGridView1.Location = new System.Drawing.Point(4, 380);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1038, 255);
+            this.dataGridView1.RowHeadersWidth = 62;
+            this.dataGridView1.Size = new System.Drawing.Size(1911, 541);
             this.dataGridView1.TabIndex = 9;
             // 
             // button3
@@ -98,9 +104,10 @@
             this.button3.ForeColor = System.Drawing.Color.Black;
             this.button3.Image = global::RM_Dental_Laboratory_and_Supplies.Properties.Resources.printer;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(348, 3);
+            this.button3.Location = new System.Drawing.Point(522, 5);
+            this.button3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(109, 50);
+            this.button3.Size = new System.Drawing.Size(164, 77);
             this.button3.TabIndex = 8;
             this.button3.Text = "Print Existing Bill";
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -117,9 +124,10 @@
             this.button2.ForeColor = System.Drawing.Color.Black;
             this.button2.Image = global::RM_Dental_Laboratory_and_Supplies.Properties.Resources.receipt;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(233, 3);
+            this.button2.Location = new System.Drawing.Point(350, 5);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(109, 50);
+            this.button2.Size = new System.Drawing.Size(164, 77);
             this.button2.TabIndex = 7;
             this.button2.Text = "Statement of Account";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -136,9 +144,10 @@
             this.button1.ForeColor = System.Drawing.Color.Black;
             this.button1.Image = global::RM_Dental_Laboratory_and_Supplies.Properties.Resources.payment_method;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(118, 3);
+            this.button1.Location = new System.Drawing.Point(177, 5);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(109, 50);
+            this.button1.Size = new System.Drawing.Size(164, 77);
             this.button1.TabIndex = 6;
             this.button1.Text = "Add Payment";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -155,9 +164,10 @@
             this.AddCaseBtn.ForeColor = System.Drawing.Color.Black;
             this.AddCaseBtn.Image = global::RM_Dental_Laboratory_and_Supplies.Properties.Resources.invoice_payment__2_;
             this.AddCaseBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AddCaseBtn.Location = new System.Drawing.Point(3, 3);
+            this.AddCaseBtn.Location = new System.Drawing.Point(4, 5);
+            this.AddCaseBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.AddCaseBtn.Name = "AddCaseBtn";
-            this.AddCaseBtn.Size = new System.Drawing.Size(109, 50);
+            this.AddCaseBtn.Size = new System.Drawing.Size(164, 77);
             this.AddCaseBtn.TabIndex = 5;
             this.AddCaseBtn.Text = "Billing";
             this.AddCaseBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -166,7 +176,7 @@
             // 
             // BillingSOA
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBox1);
@@ -177,8 +187,10 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.AddCaseBtn);
+            this.DoubleBuffered = true;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "BillingSOA";
-            this.Size = new System.Drawing.Size(1044, 505);
+            this.Size = new System.Drawing.Size(1920, 926);
             this.Load += new System.EventHandler(this.BillingSOA_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

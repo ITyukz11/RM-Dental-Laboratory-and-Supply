@@ -1,4 +1,5 @@
 ﻿using RM_Dental_Laboratory_and_Supplies.Database;
+using RM_Dental_Laboratory_and_Supplies.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,26 +20,17 @@ namespace RM_Dental_Laboratory_and_Supplies.Forms.Dashboard
             // Set KeyPreview to true to capture key events at the form level
             this.KeyPreview = true;
 
-            // Hook up KeyDown event handler for the form
-            this.KeyDown += AddUser_KeyDown;
+            // Call the utility method to close the form on Escape key press
+            FormUtils.CloseOnEscapeKeyDown(this);
+
+            // Call the utility method to perform click on SubmitBtn on Enter key press
+            FormUtils.PerformClickOnEnterKey(this, SubmitBtn);
 
             PasswordTb.UseSystemPasswordChar = true;
             ConfPasswordTb.UseSystemPasswordChar = true;
         }
 
-        private void AddUser_KeyDown(object sender, KeyEventArgs e)
-        {
-            // Check if the Escape key is pressed
-            if (e.KeyCode == Keys.Escape)
-            {
-                // Close the form
-                this.Close();
-            }
-            else if(e.KeyCode == Keys.Enter)
-            {
-                SubmitBtn.PerformClick();
-            }
-        }
+     
 
         private void SubmitBtn_Click(object sender, EventArgs e)
         {

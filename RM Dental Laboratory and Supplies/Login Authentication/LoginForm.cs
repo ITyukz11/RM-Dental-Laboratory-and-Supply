@@ -1,9 +1,11 @@
 ﻿using RM_Dental_Laboratory_and_Supplies.Database;
 using RM_Dental_Laboratory_and_Supplies.Forms.Dashboard;
+using RM_Dental_Laboratory_and_Supplies.Global;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
@@ -11,6 +13,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace RM_Dental_Laboratory_and_Supplies.Login_Authentication
 {
@@ -33,10 +36,8 @@ int nHeightEllipse // width of ellipse
             // Hook up Paint event handlers for the textboxes
 
             PasswordTb.UseSystemPasswordChar = true;
-            this.KeyDown += LoginForm_KeyPress;
-            this.KeyDown += PasswordTb_KeyDown;
-            //this.KeyDown += UsernameTb_KeyDown;
 
+            Utils.FormUtils.PerformClickOnEnterKey(this, SubmitBtn);
             // set form border radius round
             this.FormBorderStyle = FormBorderStyle.None;
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
@@ -49,62 +50,70 @@ int nHeightEllipse // width of ellipse
             Current_user = username;
         }
 
-
-        private void LoginForm_KeyPress(object sender, KeyEventArgs e)
-        {
-            // Check if the Enter key is pressed
-            if (e.KeyCode == Keys.Enter)
-            {
-                // Trigger the Submit button click event
-                SubmitBtn.PerformClick();
-            }
-        }
-        private void SubmitBtn_Click(object sender, EventArgs e)
+        private async void SubmitBtn_Click(object sender, EventArgs e)
         {
             try
             {
-                SQLManagement sql = new SQLManagement();
-                if(UsernameTB.Text.Length ==0 || PasswordTb.Text.Length==0 ) 
-                { 
+                // Show the progress bar
+                UsernameTB.Enabled = false;
+                PasswordTb.Enabled = false;
+                checkBox1.Enabled = false;
+                SubmitBtn.Enabled = false;
+                ExitBtn.Enabled = false;
+
+                SQLManagement_Login SQL = new SQLManagement_Login();
+
+                if (UsernameTB.Text.Length == 0 || PasswordTb.Text.Length == 0)
+                {
                     MessageBox.Show("Please fill out all the blanks", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    bool result = sql.LoginAuth(UsernameTB.Text, PasswordTb.Text);
+                    // Call the LoginAuth method asynchronously
+                    string result = await SQL.LoginAuth(UsernameTB.Text, PasswordTb.Text);
 
-                    if (result)
+                    if (result == "success")
                     {
                         MainForm mainform = new MainForm();
 
-                        mainform.SetCurrentUser(UsernameTB.Text); // Set Current_user in MainForm
+                        // Set the Username property in the Globals class
+                        Globals.Current_User = UsernameTB.Text;
+                        MessageBox.Show("Login success.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         mainform.Show();
                         this.Hide();
                     }
-                 
-                }        
-            }catch(Exception ex) {
-                MessageBox.Show(ex.Message);
-
+                    else if (result == "invalid")
+                    {
+                        MessageBox.Show("Login failed. Invalid username or password.", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        MessageBox.Show("An error occurred while connecting to the server. Please check your connection settings and try again.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An unexpected error occurred: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                // Hide the progress bar after login process completes
+                UsernameTB.Enabled = true;
+                PasswordTb.Enabled = true;
+                checkBox1.Enabled = true;
+                SubmitBtn.Enabled = true;
+                ExitBtn.Enabled = true;
             }
         }
 
-        protected override void OnPaint(PaintEventArgs e)
-        {
-            // Define the gradient colors
-            Color color1 = Color.FromArgb(2, 56, 110); // Blue
-            Color color2 = Color.FromArgb(19, 15, 64); // Sky Blue
 
-            // Create a linear gradient brush
-            Rectangle rect = new Rectangle(0, 0, this.Width, this.Height);
-            LinearGradientBrush brush = new LinearGradientBrush(rect, color1, color2, LinearGradientMode.Vertical);
 
-            // Fill the form's background with the gradient brush
-            e.Graphics.FillRectangle(brush, rect);
 
-            // Call the base OnPaint method to ensure the form is painted correctly
-            base.OnPaint(e);
-        }
+
+
+
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
 
@@ -122,30 +131,10 @@ int nHeightEllipse // width of ellipse
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
-        private void PasswordTb_KeyDown(object sender, KeyEventArgs e)
-        {
-            // Check if the Enter key is pressed
-            if (e.KeyCode == Keys.Enter)
-            {
-                // Trigger the Submit button click event
-                SubmitBtn.PerformClick();
-            }
-        }
 
-        private void UsernameTB_KeyDown(object sender, KeyEventArgs e)
-        {
-          
-                // Check if the Enter key is pressed
-                if (e.KeyCode == Keys.Enter)
-                {
-                    // Trigger the Submit button click event
-                    SubmitBtn.PerformClick();
-                }
-            
-        }
     }
 
 
