@@ -34,6 +34,19 @@ namespace RM_Dental_Laboratory_and_Supplies
         {
             InitializeComponent();
 
+            Utils.DoubleBuffer doubleBuffer = new Utils.DoubleBuffer();
+            
+            doubleBuffer.SetDoubleBuffer(CurrentUserLbl, true);
+            doubleBuffer.SetDoubleBuffer(panel1, true);
+            doubleBuffer.SetDoubleBuffer(panel2, true);
+            doubleBuffer.SetDoubleBuffer(DashboardPanel, true);
+            doubleBuffer.SetDoubleBuffer(DueCasesPanel, true);
+            doubleBuffer.SetDoubleBuffer(ViewDatasPanel, true);
+            doubleBuffer.SetDoubleBuffer(CustomerPanel, true);
+            doubleBuffer.SetDoubleBuffer(BillingSOAPanel, true);
+            doubleBuffer.SetDoubleBuffer(SettingsPanel, true);
+
+
             buttonPanelMap.Add(DashboardBtn, DashboardPanel);
             buttonPanelMap.Add(DueCasesBtn, DueCasesPanel);
             buttonPanelMap.Add(ViewDatasBtn, ViewDatasPanel);

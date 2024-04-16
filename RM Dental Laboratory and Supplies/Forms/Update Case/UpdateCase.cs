@@ -21,7 +21,7 @@ namespace RM_Dental_Laboratory_and_Supplies.Forms.Update_Case
         public string CaseID {get;set;}
         SQLManagement_UpdateCase SQL = new SQLManagement_UpdateCase();
 
-
+        private UserControls.UpdateCase _updateCaseForm;
         private void UpdateCase_Load(object sender, EventArgs e)
         {
             LoadCaseData(CaseID);
@@ -96,7 +96,9 @@ namespace RM_Dental_Laboratory_and_Supplies.Forms.Update_Case
             }
         }
 
-
-
+        private async void SubmitBtn_Click(object sender, EventArgs e)
+        {
+            await _updateCaseForm.PopulateDataGridViewAsync();
+        }
     }
 }

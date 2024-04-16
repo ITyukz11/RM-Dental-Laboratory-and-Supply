@@ -51,6 +51,9 @@
     <ApplicationIcon>clinic.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
@@ -68,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database\SQLManagement.cs" />
+    <Compile Include="Database\SQLManagement_Dentists.cs" />
     <Compile Include="Database\SQLManagement_DueCase.cs" />
     <Compile Include="Database\SQLManagement_Login.cs" />
     <Compile Include="Database\SQLManagement_UpdateCase.cs" />
@@ -95,6 +99,7 @@
     <Compile Include="Forms\Update Case\UpdateCase.Designer.cs">
       <DependentUpon>UpdateCase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Global\DentistsData.cs" />
     <Compile Include="Global\Globals.cs" />
     <Compile Include="Global\UpdateCase\CaseData.cs" />
     <Compile Include="MainForm.cs">
@@ -115,6 +120,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CrystalReport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="UserControls\BillingSOA.cs">
       <SubType>UserControl</SubType>
@@ -158,6 +169,7 @@
     <Compile Include="UserControls\UpdateCase.Designer.cs">
       <DependentUpon>UpdateCase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils\DoubleBuffer.cs" />
     <Compile Include="Utils\FormUtils.cs" />
     <EmbeddedResource Include="Forms\Dashboard\AddCase.resx">
       <DependentUpon>AddCase.cs</DependentUpon>
@@ -181,6 +193,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrystalReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\BillingSOA.resx">
       <DependentUpon>BillingSOA.cs</DependentUpon>
@@ -267,6 +283,10 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

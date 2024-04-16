@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -56,7 +56,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.AddNewBtn = new System.Windows.Forms.Button();
             this.DeleteBtn = new System.Windows.Forms.Button();
@@ -65,6 +64,8 @@
             this.NextPageBtn = new System.Windows.Forms.Button();
             this.PreviousPageBtn = new System.Windows.Forms.Button();
             this.PageLbl = new System.Windows.Forms.Label();
+            this.TotalPageLbl = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -124,18 +125,18 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 28);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -220,22 +221,27 @@
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Information";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // ProvidedTb
             // 
+            this.ProvidedTb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ProvidedTb.BackColor = System.Drawing.SystemColors.Control;
             this.ProvidedTb.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ProvidedTb.Location = new System.Drawing.Point(938, 42);
+            this.ProvidedTb.Enabled = false;
+            this.ProvidedTb.Location = new System.Drawing.Point(905, 46);
             this.ProvidedTb.Multiline = true;
             this.ProvidedTb.Name = "ProvidedTb";
-            this.ProvidedTb.Size = new System.Drawing.Size(318, 148);
+            this.ProvidedTb.Size = new System.Drawing.Size(374, 148);
             this.ProvidedTb.TabIndex = 44;
+            this.ProvidedTb.TextChanged += new System.EventHandler(this.ProvidedTb_TextChanged);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(827, 47);
+            this.label7.Location = new System.Drawing.Point(794, 51);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(103, 23);
@@ -401,7 +407,6 @@
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.progressBar1);
             this.groupBox2.Controls.Add(this.dataGridView1);
             this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(4, 220);
@@ -410,15 +415,7 @@
             this.groupBox2.TabIndex = 27;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Data";
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressBar1.Location = new System.Drawing.Point(6, 106);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(1901, 40);
-            this.progressBar1.TabIndex = 16;
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // groupBox3
             // 
@@ -493,9 +490,9 @@
             // 
             // NextPageBtn
             // 
-            this.NextPageBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.NextPageBtn.Location = new System.Drawing.Point(1007, 861);
+            this.NextPageBtn.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.NextPageBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.NextPageBtn.Location = new System.Drawing.Point(1044, 861);
             this.NextPageBtn.Name = "NextPageBtn";
             this.NextPageBtn.Size = new System.Drawing.Size(130, 55);
             this.NextPageBtn.TabIndex = 17;
@@ -505,9 +502,9 @@
             // 
             // PreviousPageBtn
             // 
-            this.PreviousPageBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.PreviousPageBtn.Location = new System.Drawing.Point(835, 860);
+            this.PreviousPageBtn.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.PreviousPageBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.PreviousPageBtn.Location = new System.Drawing.Point(820, 861);
             this.PreviousPageBtn.Name = "PreviousPageBtn";
             this.PreviousPageBtn.Size = new System.Drawing.Size(130, 55);
             this.PreviousPageBtn.TabIndex = 18;
@@ -517,17 +514,40 @@
             // 
             // PageLbl
             // 
+            this.PageLbl.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.PageLbl.AutoSize = true;
-            this.PageLbl.Location = new System.Drawing.Point(974, 878);
+            this.PageLbl.Location = new System.Drawing.Point(963, 878);
             this.PageLbl.Name = "PageLbl";
             this.PageLbl.Size = new System.Drawing.Size(18, 20);
             this.PageLbl.TabIndex = 30;
             this.PageLbl.Text = "1";
             // 
+            // TotalPageLbl
+            // 
+            this.TotalPageLbl.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.TotalPageLbl.AutoSize = true;
+            this.TotalPageLbl.Location = new System.Drawing.Point(1016, 878);
+            this.TotalPageLbl.Name = "TotalPageLbl";
+            this.TotalPageLbl.Size = new System.Drawing.Size(18, 20);
+            this.TotalPageLbl.TabIndex = 31;
+            this.TotalPageLbl.Text = "1";
+            // 
+            // label8
+            // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(987, 878);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(23, 20);
+            this.label8.TabIndex = 32;
+            this.label8.Text = "of";
+            // 
             // UpdateCase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.TotalPageLbl);
             this.Controls.Add(this.PageLbl);
             this.Controls.Add(this.PreviousPageBtn);
             this.Controls.Add(this.groupBox4);
@@ -582,11 +602,12 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button AddNewBtn;
-        private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.TextBox ProvidedTb;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button NextPageBtn;
         private System.Windows.Forms.Button PreviousPageBtn;
         private System.Windows.Forms.Label PageLbl;
+        private System.Windows.Forms.Label TotalPageLbl;
+        private System.Windows.Forms.Label label8;
     }
 }

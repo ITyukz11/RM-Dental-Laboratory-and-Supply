@@ -118,7 +118,7 @@ namespace RM_Dental_Laboratory_and_Supplies.Database
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("ErrorZ: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -127,6 +127,48 @@ namespace RM_Dental_Laboratory_and_Supplies.Database
 
             return caseData;
         }
+
+            public bool DeleteCase(string caseId)
+            {
+                try
+                {
+                    // Define the SQL query to delete a case with the specified caseId
+                    string query = "DELETE FROM dbo.cases WHERE case_id = @CaseID";
+
+                 // Open the connection
+                    SQL.connection.Open();
+                       
+
+                        // Create a SqlCommand object with the delete query
+                        using (SqlCommand command = new SqlCommand(query, SQL.connection))
+                        {
+                            // Add parameters to the query to prevent SQL injection
+                            command.Parameters.AddWithValue("@CaseID", caseId);
+
+                            // Execute the query
+                            int rowsAffected = command.ExecuteNonQuery();
+
+                            // Check if any rows were affected (case was deleted)
+                            if (rowsAffected > 0)
+                            {
+                                // Case was deleted successfully
+                                return true;
+                            }
+                            else
+                            {
+                                // No rows were affected, meaning the case with the specified ID was not found
+                                return false;
+                            }
+                        }
+                   
+                }
+                catch (Exception ex)
+                {
+                    // Handle any exceptions that occur during the deletion process
+                    Console.WriteLine("Error deleting case: " + ex.Message);
+                    return false;
+                }finally { SQL.connection.Close(); }
+            }
 
         public string GetDentistName(int dentist_id)
         {

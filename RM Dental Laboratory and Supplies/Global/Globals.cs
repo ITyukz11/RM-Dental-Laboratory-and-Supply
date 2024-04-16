@@ -12,5 +12,6 @@ namespace RM_Dental_Laboratory_and_Supplies.Global
         public static string Current_User_Id { get; set; }
 
         public static bool DataTableCasesLoad { get; set; }
+        public static bool DataTableDentistsLoad { get; set; }
     }
 }

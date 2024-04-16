@@ -66,21 +66,41 @@ namespace RM_Dental_Laboratory_and_Supplies.Database
             }
         }
 
+        //Add dentists
         public bool InsertData(string fullname, string address, string contact_number, string email)
         {
             try
             {
                 connection.Open();
-                string query = "INSERT INTO dbo.dentists (full_name, address, contact_num,email_address) VALUES (@fullname, @address, @contactnumber,@email);";
-                command = new SqlCommand(query, connection);
+
+                // Check if dbo.dentists table exists, if not, create it
+                string createTableQuery = @"
+            IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = 'dentists')
+            BEGIN
+                CREATE TABLE dbo.dentists (
+                    dentist_id INT PRIMARY KEY IDENTITY,
+                    full_name NVARCHAR(255),
+                    address NVARCHAR(255),
+                    contact_num NVARCHAR(20),
+                    email_address NVARCHAR(255)
+                );
+                PRINT 'dbo.dentists table created successfully.';
+            END";
+
+                SqlCommand createTableCommand = new SqlCommand(createTableQuery, connection);
+                createTableCommand.ExecuteNonQuery();
+
+                // Insert data into dbo.dentists table
+                string insertQuery = "INSERT INTO dbo.dentists (full_name, address, contact_num, email_address) VALUES (@fullname, @address, @contactnumber, @email)";
+                SqlCommand insertCommand = new SqlCommand(insertQuery, connection);
 
                 // Set the parameter values
-                command.Parameters.AddWithValue("@fullname", fullname);
-                command.Parameters.AddWithValue("@address", address);
-                command.Parameters.AddWithValue("@contactnumber", contact_number);
-                command.Parameters.AddWithValue("@email", email);
+                insertCommand.Parameters.AddWithValue("@fullname", fullname);
+                insertCommand.Parameters.AddWithValue("@address", address);
+                insertCommand.Parameters.AddWithValue("@contactnumber", contact_number);
+                insertCommand.Parameters.AddWithValue("@email", email);
 
-                int result = command.ExecuteNonQuery();
+                int result = insertCommand.ExecuteNonQuery();
 
                 if (result > 0)
                 {
@@ -162,31 +182,66 @@ namespace RM_Dental_Laboratory_and_Supplies.Database
         }
 
         public bool InsertCase(string case_type_code, string patient_name, DateTime record_date, TimeSpan record_time, string status,
-     string case_, string description, DateTime due_date, TimeSpan due_time, string remarks, string provided, byte[] image, int dentist_id, int user_id)
+      string case_, string description, DateTime due_date, TimeSpan due_time, string remarks, string provided, byte[] image, int dentist_id, int user_id)
         {
             try
             {
                 connection.Open();
-                string query = @"INSERT INTO dbo.cases (case_type_code, patient_name, record_date, record_time, status, [case], description, due_date, due_time, remarks, provided, image, dentist_id, user_id) 
-                    VALUES (@case_type_code,  @patient_name, @record_date, @record_time, @status, @case, @description, @due_date, @due_time, @remarks, @provided, @image, @dentist_id, @user_id)";
-                SqlCommand command = new SqlCommand(query, connection);
 
-                command.Parameters.AddWithValue("@case_type_code", case_type_code);
-                command.Parameters.AddWithValue("@patient_name", patient_name); 
-                command.Parameters.AddWithValue("@record_date", record_date);
-                command.Parameters.AddWithValue("@record_time", record_time);
-                command.Parameters.AddWithValue("@status", status);
-                command.Parameters.AddWithValue("@case", case_);
-                command.Parameters.AddWithValue("@description", description);
-                command.Parameters.AddWithValue("@due_date", due_date);
-                command.Parameters.AddWithValue("@due_time", due_time);
-                command.Parameters.AddWithValue("@remarks", remarks);
-                command.Parameters.AddWithValue("@provided", provided);
-                command.Parameters.AddWithValue("@image", image);
-                command.Parameters.AddWithValue("@dentist_id", dentist_id);
-                command.Parameters.AddWithValue("@user_id", user_id);
+                // Check if dbo.cases table exists, if not, create it
+                string createTableQuery = @"
+    IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = 'cases')
+    BEGIN
+        CREATE TABLE dbo.cases (
+            case_id INT PRIMARY KEY IDENTITY,
+            case_type_code NVARCHAR(255),
+            patient_name NVARCHAR(255),
+            record_date DATE,
+            record_time TIME,
+            [case] NVARCHAR(MAX),
+            description NVARCHAR(MAX),
+            due_date DATE,
+            due_time TIME,
+            status NVARCHAR(255),
+            remarks NVARCHAR(MAX),
+            provided NVARCHAR(255),
+            image VARBINARY(MAX),
+            new_case_image VARBINARY(MAX),
+            process_image VARBINARY(MAX),
+            dentist_id INT,
+            user_id INT,
+            CONSTRAINT FK_dentist_id FOREIGN KEY (dentist_id) REFERENCES dbo.dentists(dentist_id),
+            CONSTRAINT FK_user_id FOREIGN KEY (user_id) REFERENCES dbo.users(user_id)
+        );
+        PRINT 'dbo.cases table created successfully.';
+    END";
 
-                int rowsAffected = command.ExecuteNonQuery();
+
+                SqlCommand createTableCommand = new SqlCommand(createTableQuery, connection);
+                createTableCommand.ExecuteNonQuery();
+
+                // Insert case data
+                string insertQuery = @"
+            INSERT INTO dbo.cases (case_type_code, patient_name, record_date, record_time, status, [case], description, due_date, due_time, remarks, provided, image, dentist_id, user_id)
+            VALUES (@case_type_code, @patient_name, @record_date, @record_time, @status, @case, @description, @due_date, @due_time, @remarks, @provided, @image, @dentist_id, @user_id)";
+                SqlCommand insertCommand = new SqlCommand(insertQuery, connection);
+
+                insertCommand.Parameters.AddWithValue("@case_type_code", case_type_code);
+                insertCommand.Parameters.AddWithValue("@patient_name", patient_name);
+                insertCommand.Parameters.AddWithValue("@record_date", record_date);
+                insertCommand.Parameters.AddWithValue("@record_time", record_time);
+                insertCommand.Parameters.AddWithValue("@status", status);
+                insertCommand.Parameters.AddWithValue("@case", case_);
+                insertCommand.Parameters.AddWithValue("@description", description);
+                insertCommand.Parameters.AddWithValue("@due_date", due_date);
+                insertCommand.Parameters.AddWithValue("@due_time", due_time);
+                insertCommand.Parameters.AddWithValue("@remarks", remarks);
+                insertCommand.Parameters.AddWithValue("@provided", provided);
+                insertCommand.Parameters.AddWithValue("@image", image);
+                insertCommand.Parameters.AddWithValue("@dentist_id", dentist_id);
+                insertCommand.Parameters.AddWithValue("@user_id", user_id);
+
+                int rowsAffected = insertCommand.ExecuteNonQuery();
                 if (rowsAffected > 0)
                 {
                     MessageBox.Show("Successfully added new case", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -207,5 +262,6 @@ namespace RM_Dental_Laboratory_and_Supplies.Database
                 connection.Close();
             }
         }
+
     }
 }

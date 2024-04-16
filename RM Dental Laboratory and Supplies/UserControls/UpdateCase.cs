@@ -1,6 +1,7 @@
 ﻿using RM_Dental_Laboratory_and_Supplies.Database;
 using RM_Dental_Laboratory_and_Supplies.Forms.Dashboard;
 using RM_Dental_Laboratory_and_Supplies.Global.UpdateCase;
+using RM_Dental_Laboratory_and_Supplies.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,7 +18,7 @@ namespace RM_Dental_Laboratory_and_Supplies.UserControls
 {
     public partial class UpdateCase : UserControl
     {
-        private SQLManagement_UpdateCase sql = new SQLManagement_UpdateCase();
+        SQLManagement_UpdateCase sql = new SQLManagement_UpdateCase();
         Forms.Update_Case.UpdateCase updateCase = new Forms.Update_Case.UpdateCase();
         private CaseData caseData;
         private int currentPage = 1;
@@ -25,75 +26,73 @@ namespace RM_Dental_Laboratory_and_Supplies.UserControls
 
 
         private string case_id;
+        private string caseTypeCode;
 
         public UpdateCase()
         {
             InitializeComponent();
+            InitializeAsync();
+            Utils.DoubleBuffer doubleBuffer = new Utils.DoubleBuffer();
+            doubleBuffer.SetDoubleBuffer(groupBox1, true);
+            doubleBuffer.SetDoubleBuffer(groupBox2, true);
+            doubleBuffer.SetDoubleBuffer(groupBox3, true);
+            doubleBuffer.SetDoubleBuffer(groupBox4, true);
 
-               // Attach KeyDown event handler to the SearchTb TextBox
+            doubleBuffer.SetDoubleBuffer(dataGridView1, true);
+
+            // Attach KeyDown event handler to the SearchTb TextBox
             SearchTb.KeyDown += SearchTb_KeyDown;
+
             UpdateBtn.Enabled = false;
             DeleteBtn.Enabled = false;
-            if (!Global.Globals.DataTableCasesLoad)
-            {
-            PageLbl.Text = currentPage.ToString();
-
-                Global.Globals.DataTableCasesLoad = true;
-                MessageBox.Show("LOADED");
-            }
+        
+            //set to false when first load
+            PreviousPageBtn.Enabled = false;
         }
 
-        public async void UpdateCase_Load(object sender, EventArgs e)
+        private async Task InitializeAsync()
         {
-            await PopulateDataGridViewAsync();
+                await PopulateDataGridViewAsync();
+                Global.Globals.DataTableCasesLoad = true;
+                PageLbl.Text = currentPage.ToString();
         }
-
-
-     
 
         public async Task PopulateDataGridViewAsync()
         {
             try
             {
-                // Show the ProgressBar
-                progressBar1.Style = ProgressBarStyle.Marquee;
-                progressBar1.Visible = true;
 
-                // Use the existing data if available
-                if (caseData != null && caseData.Cases != null)
-                {
-                    // Display records based on pagination
-                    DisplayPage(currentPage);
-                }
-                else
-                {
-                    // Load data from database if no existing data is available
+
+                Console.WriteLine("PopulateDataGridViewAsync: Start");
+
+            
+                    Console.WriteLine("PopulateDataGridViewAsync: caseData or Cases DataTable is null. Retrieving data...");
                     caseData = await Task.Run(() => sql.RetrieveCases());
-                    if (caseData != null && caseData.Cases != null)
-                    {
-                        // Display records based on pagination
-                        DisplayPage(currentPage);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Failed to retrieve cases data.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
+              
+
+                    DisplayPage(currentPage);
+                
+              
 
                 TotalCasesLbl.Text = dataGridView1.RowCount.ToString();
+                TotalPageLbl.Text = TotalPages().ToString();
+
             }
             catch (Exception ex)
             {
+                Console.WriteLine("PopulateDataGridViewAsync: Error - " + ex.Message);
                 MessageBox.Show("Error: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+           }
             finally
             {
-                // Hide the ProgressBar
-                progressBar1.Visible = false;
+
+                Console.WriteLine("PopulateDataGridViewAsync: Completed");
             }
         }
 
-        private void DisplayPage(int pageNumber)
+
+
+        public void DisplayPage(int pageNumber)
         {
             // Calculate start index and end index for the current page
             int startIndex = (pageNumber - 1) * pageSize;
@@ -114,9 +113,9 @@ namespace RM_Dental_Laboratory_and_Supplies.UserControls
 
         // Calculate the total number of pages
         private int TotalPages()
-        {
-            int totalPages = (int)Math.Ceiling((double)caseData.Cases.Rows.Count / pageSize);
-            return totalPages;
+        {       
+                int totalPages = (int)Math.Ceiling((double)caseData.Cases.Rows.Count / pageSize);
+                return totalPages;
         }
 
 
@@ -183,7 +182,7 @@ namespace RM_Dental_Laboratory_and_Supplies.UserControls
                 TimeSpan dueTime = (TimeSpan)selectedRow.Cells["Due Time"].Value;
                 DateTime dueDateTime = DateTime.Today.Add(dueTime); // Combine with today's date to create a DateTime object
                 ProvidedTb.Text = selectedRow.Cells["provided"].Value.ToString();
-                string caseTypeCode = selectedRow.Cells["Case Type/Code"].Value.ToString();
+                caseTypeCode = selectedRow.Cells["Case Type/Code"].Value.ToString();
                 int dentistId = Convert.ToInt32(selectedRow.Cells["Dentist ID"].Value);
 
 
@@ -240,13 +239,54 @@ namespace RM_Dental_Laboratory_and_Supplies.UserControls
 
         public async void DeleteBtn_Click(object sender, EventArgs e)
         {
-            await PopulateDataGridViewAsync();
+           DialogResult response = MessageBox.Show($"Are you sure you want to delete {caseTypeCode} case?","Deleting Case",MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if(response == DialogResult.Yes)
+            {
+                try
+                {
+
+                    bool result = sql.DeleteCase(case_id);
+
+                    if (result)
+                    {
+                        MessageBox.Show("Deleted Successfully", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        await PopulateDataGridViewAsync();
+
+                        Global.Globals.DataTableCasesLoad = false;
+                    }
+                    else MessageBox.Show($"Error deleting {caseTypeCode} case", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show($"Error deleting {caseTypeCode} case, {ex.Message}", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+              
+                
+            }
+            
+        }
+        private void ProvidedTb_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
-        public async void RefreshData()
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void UpdateCase_Load(object sender, EventArgs e)
         {
             await PopulateDataGridViewAsync();
-
         }
     }
 }

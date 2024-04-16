@@ -378,6 +378,7 @@
             this.SubmitBtn.TabIndex = 11;
             this.SubmitBtn.Text = "UPDATE";
             this.SubmitBtn.UseVisualStyleBackColor = false;
+            this.SubmitBtn.Click += new System.EventHandler(this.SubmitBtn_Click);
             // 
             // groupBox2
             // 

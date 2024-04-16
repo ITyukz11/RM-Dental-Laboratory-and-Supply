@@ -202,6 +202,7 @@ namespace RM_Dental_Laboratory_and_Supplies.Forms.Dashboard
             {
                 //SUBMIT NEW CASE
                 SQLManagement sql = new SQLManagement();
+                Global.UpdateCase.CaseData caseData = new Global.UpdateCase.CaseData();
 
                 try
                 {
@@ -222,16 +223,38 @@ namespace RM_Dental_Laboratory_and_Supplies.Forms.Dashboard
                         Convert.ToInt32(DentistID.Text),
                         Convert.ToInt32(Globals.Current_User_Id)
                     );
-                    Global.UpdateCase.CaseData caseData = new Global.UpdateCase.CaseData();
+
+                    // Update CaseData object with new case data
+                    caseData.Cases.Rows.Add(
+                        CaseTypeCB.Text + CaseCodeTb.Text,
+                        PatientNameTB.Text,
+                        CaseTypeCB.Text,
+                        CurrentTime.Value.TimeOfDay.ToString(),
+                        CurrentDate.Value.Date.ToString(),
+                        StatusTB.Text,
+                        CaseTB.Text,
+                        DescriptionTB.Text,
+                        DueTimePicker.Value.TimeOfDay.ToString(),
+                        DueDatePicker.Value.Date.ToString(),
+                        RemarksTb.Text,
+                        OthersTxt.Text,
+                        Globals.Current_User_Id
+                    );
                     caseData.PatientName = PatientNameTB.Text;
 
                     if (result)
                     {
                         if (_updateCaseForm != null)
                         {
+                            Global.Globals.DataTableCasesLoad = false;
+
+                            caseData.PrintCasesData();
+
                             await _updateCaseForm.PopulateDataGridViewAsync();
-                            _updateCaseForm.RefreshData();
+
                             this.Close();
+                          
+
 
                         }
 
